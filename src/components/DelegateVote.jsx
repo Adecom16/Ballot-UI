@@ -1,6 +1,5 @@
 import { Box, Button, Card, Flex, Text, TextField } from "@radix-ui/themes";
 import useDelegate from "../hooks/useDelegate";
-import useDelegate from "";
 import { useState } from "react";
 
 const DelegateVote = () => {

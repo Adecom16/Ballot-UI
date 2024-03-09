@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { isSupportedChain } from "../utils";
 import { isAddress } from "ethers";
-import { getProvider } from "../constants/providers";
+import { getProvider } from "../constants/provider";
 import { getProposalsContract } from "../constants/contracts";
 import {
   useWeb3ModalAccount,
