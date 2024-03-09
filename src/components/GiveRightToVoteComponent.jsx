@@ -1,6 +1,12 @@
 import { Button, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
+import { useState } from "react";
+import useGiveRightToVote from "../hooks/useGiveRightToVote";
 
 const GiveRightToVoteComponent = () => {
+  const [address, setAddress] = useState("");
+
+  const handleGiveRightToVote = useGiveRightToVote(address);
+
   return (
     <Dialog.Root>
       <Dialog.Trigger>
@@ -18,7 +24,11 @@ const GiveRightToVoteComponent = () => {
             <Text as="div" size="2" mb="1" weight="bold">
               Voter&apos;s Address
             </Text>
-            <TextField.Input placeholder="Enter Voter's Address" />
+            <TextField.Input
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Enter Voter's Address"
+            />
           </label>
         </Flex>
 
@@ -28,9 +38,9 @@ const GiveRightToVoteComponent = () => {
               Cancel
             </Button>
           </Dialog.Close>
-          <Dialog.Close>
-            <Button className="bg-blue-600">Add voter</Button>
-          </Dialog.Close>
+          <Button className="bg-blue-600" onClick={handleGiveRightToVote}>
+            Add voter
+          </Button>
         </Flex>
       </Dialog.Content>
     </Dialog.Root>
