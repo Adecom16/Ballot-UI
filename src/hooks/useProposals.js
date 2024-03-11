@@ -4,12 +4,17 @@ import { readOnlyProvider } from "../constants/provider";
 import { decodeBytes32String } from "ethers";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLatestBlock } from "./useLatestBlock";
+
+readOnlyProvider.getBlock;
 
 const useProposals = () => {
   const [proposals, setProposals] = useState({
     loading: true,
     data: [],
   });
+
+  const newBlock = useLatestBlock();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +38,7 @@ const useProposals = () => {
     };
 
     fetchData();
-  }, []);
+  }, [newBlock]);
 
   return proposals;
 };
