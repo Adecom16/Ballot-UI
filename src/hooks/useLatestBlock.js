@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
+import { wssProvider } from "../constants/provider";
 
 export function useLatestBlock() {
   const [blockNumber, setBlockNumber] = useState(undefined);
